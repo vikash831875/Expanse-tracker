@@ -17,16 +17,16 @@ app.get('/ping', (req, res) => {
 
 app.use(bodyParser.json());
 
-// --- CHANGE START ---
-// Replace 'https://your-frontend-app.onrender.com' with your ACTUAL Frontend URL
+// --- CRITICAL FIX HERE ---
 app.use(cors(
     {
-        origin: ["https://your-frontend-app.onrender.com"], 
+        // THIS MUST MATCH YOUR FRONTEND URL EXACTLY
+        origin: ["https://expanse-tracker-xzco.onrender.com"],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true
     }
 ));
-// --- CHANGE END ---
+// -------------------------
 
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
