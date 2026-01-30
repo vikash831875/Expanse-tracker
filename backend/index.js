@@ -16,7 +16,18 @@ app.get('/ping', (req, res) => {
 });
 
 app.use(bodyParser.json());
-app.use(cors());
+
+// --- CHANGE START ---
+// Replace 'https://your-frontend-app.onrender.com' with your ACTUAL Frontend URL
+app.use(cors(
+    {
+        origin: ["https://your-frontend-app.onrender.com"], 
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true
+    }
+));
+// --- CHANGE END ---
+
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
 app.use('/expenses', ensureAuthenticated, ExpenseRouter)
