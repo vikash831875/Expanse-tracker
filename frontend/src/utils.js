@@ -12,4 +12,5 @@ export const handleError = (msg) => {
     })
 }
 
-export const APIUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+// UPDATE THIS LINE:
+export const APIUrl = 'https://expanse-tracker-backend-uy7h.onrender.com';
